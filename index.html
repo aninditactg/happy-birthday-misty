@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Misty!</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            text-shadow: 0 0 15px #e94560, 0 0 30px #e94560;
+            animation: pulse 2s infinite;
+            margin-bottom: 10px;
+        }
+        .typewriter-container {
+            display: inline-block;
+        }
+        .message {
+            font-size: 1.5rem;
+            color: #4ecca3;
+            text-shadow: 0 0 8px #4ecca3;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #4ecca3;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4ecca3; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday!</h1>
+    <div class="typewriter-container">
+        <div class="message" id="typewriter">Misty</div>
+    </div>
+
+    <script>
+        console.log("%c Happy Birthday Misty! System initialized successfully. \u{1F389}", "color: #4ecca3; font-size: 16px; font-weight: bold;");
+
+        const colors = ['#e94560', '#4ecca3', '#f9a826', '#00c9ff', '#ff00ff'];
+        
+        for (let i = 0; i < 150; i++) {
+            let confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = (Math.random() * -100) + 'vh'; 
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            if (Math.random() > 0.5) confetti.style.borderRadius = '50%';
+            
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
